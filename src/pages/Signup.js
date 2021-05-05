@@ -31,7 +31,7 @@ const useStyle = makeStyles({
   },
 });
 
-const SIGNUP_QUERY = gql`
+const SIGNUP_MUTATION = gql`
   mutation Signup($email: String!, $password: String!) {
     registerUser(newUser: { email: $email, password: $password }) {
       token
@@ -53,7 +53,7 @@ const Signup = () => {
     common: "",
   });
 
-  const [executeQuery, { loading }] = useMutation(SIGNUP_QUERY, {
+  const [executeQuery, { loading }] = useMutation(SIGNUP_MUTATION, {
     onError: (error) => setFormDataError({ common: error.message }),
     onCompleted: (data) => {
       dispatch(setAuthorization(data.registerUser.token));
