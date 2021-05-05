@@ -3,7 +3,7 @@ import gql from "graphql-tag";
 import { useEffect } from "react";
 import { Provider } from "react-redux";
 
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch } from "react-router-dom";
 import Navbar from "./components/NavBar/Navbar";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -12,6 +12,7 @@ import store from "./redux/store";
 import { setUnauthenticated, setUserData } from "./redux/user/action";
 
 import AuthRouter from "./util/AuthRouter";
+import PrivateRoute from "./util/PrivateRoute";
 
 const GET_ME_QUERY = gql`
   {
@@ -46,7 +47,7 @@ function App() {
         <Navbar />
         <div className="container">
           <Switch>
-            <Route path="/" exact component={Home} />
+            <PrivateRoute path="/" exact component={Home} />
             <AuthRouter path="/login" exact component={Login} />
             <AuthRouter path="/signup" exact component={Signup} />
             {/* <Route path="/user/:username" exact component={User} />

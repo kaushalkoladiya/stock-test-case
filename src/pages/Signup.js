@@ -127,7 +127,7 @@ const Signup = () => {
             color="primary"
             disabled={loading ? true : false}
           >
-            Login
+            Signup
             {loading && (
               <CircularProgress
                 style={{ marginLeft: "0.7rem" }}

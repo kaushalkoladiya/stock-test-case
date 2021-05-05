@@ -1,5 +1,7 @@
 .navBar {
-  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .navBar svg {

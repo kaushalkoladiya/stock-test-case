@@ -14,6 +14,7 @@ import HomeIcon from "@material-ui/icons/Home";
 import KeyboardReturn from "@material-ui/icons/KeyboardReturn";
 // style
 import style from "./NavBar.module.css";
+import { Typography } from "@material-ui/core";
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -24,13 +25,11 @@ const NavBar = () => {
   return (
     <AppBar position="fixed">
       <Toolbar className={style.navBar}>
+        <div>
+          <Typography>Stock</Typography>
+        </div>
         {isAuth ? (
           <Fragment>
-            <Link to="/">
-              <TooltipButton title="Home">
-                <HomeIcon color="primary" />
-              </TooltipButton>
-            </Link>
             <TooltipButton
               title="Logout"
               placement="top"
@@ -40,17 +39,14 @@ const NavBar = () => {
             </TooltipButton>
           </Fragment>
         ) : (
-          <Fragment>
-            <Button color="inherit" component={NavLink} to="/">
-              Home
-            </Button>
+          <div>
             <Button color="inherit" component={NavLink} to="/login">
               Login
             </Button>
             <Button color="inherit" component={NavLink} to="/signup">
               Signup
             </Button>
-          </Fragment>
+          </div>
         )}
       </Toolbar>
     </AppBar>
