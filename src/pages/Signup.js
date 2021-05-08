@@ -38,6 +38,7 @@ const SIGNUP_MUTATION = gql`
       user {
         _id
         email
+        balance
       }
     }
   }

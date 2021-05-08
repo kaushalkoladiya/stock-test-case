@@ -40,6 +40,7 @@ const LOGIN_QUERY = gql`
       user {
         _id
         email
+        balance
       }
     }
   }
