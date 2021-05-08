@@ -1,0 +1,1 @@
+exports.generateJWTToken = require("./jwt");
